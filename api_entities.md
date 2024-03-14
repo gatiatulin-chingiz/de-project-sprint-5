@@ -52,3 +52,5 @@ STG
 		- delivery_ts - не нужно
 		rate
 		tip_sum
+
+
