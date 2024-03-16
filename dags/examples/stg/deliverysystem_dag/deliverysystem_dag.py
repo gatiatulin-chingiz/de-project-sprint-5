@@ -66,7 +66,7 @@ def load_deliveries(n, url, counter, conn, headers):
             load_deliveries(n-1, url, counter, conn, headers)
 
 @dag(
-    schedule_interval='0 0 * * 1',
+    schedule_interval='0/15 * * * *',
     start_date=pendulum.datetime(2023, 1, 9, tz="UTC"),
     catchup=False,
     tags=['sprint5', 'stg', 'deliverysystem'],
@@ -90,7 +90,7 @@ def deliverysystem_stg_dag():
     courier_counter = IncrementCounter()
     delivery_counter = IncrementCounter()
 
-    rec_depth=10
+    rec_depth=1000
 
     @task()
     def load_stg_couriers():
